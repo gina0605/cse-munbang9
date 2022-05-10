@@ -1,18 +1,17 @@
-export interface Paginated<T> {
-  items: T[];
-  total: number;
-}
-
-export interface User {
-  id: number;
-  createdAt: string;
-  updatedAt: string;
-  email: string;
-  role: Role;
-  name: string;
-}
-
-export enum Role {
-  ADMIN = 'ADMIN',
-  USER = 'USER',
-}
+export const flowers = {
+  A: '무궁화',
+  B: '진달래',
+  C: '개나리',
+  D: '목련',
+  E: '철쭉',
+  F: '수선화',
+  G: '민들레',
+  H: '나팔꽃',
+  I: '분꽃',
+  J: '국화',
+  K: '봉선화',
+  L: '장미',
+  M: '동백',
+  N: '할미꽃',
+  O: '튜울립',
+};

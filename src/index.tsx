@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import '../src/plugins/bridge';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';

@@ -65,6 +65,9 @@ module.exports = {
         'screen-10': 'calc( 100vh - 10rem )',
         'screen-15': 'calc( 100vh - 15rem )',
       },
+      gridTemplateColumns: {
+        20: 'repeat(20, minmax(0, 1fr))',
+      },
     },
   },
   variants: {
