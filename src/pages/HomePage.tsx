@@ -18,16 +18,19 @@ export const HomePage = () => {
         <div className="grid grid-cols-20 gap-0.5">
           {prize.map((prize, idx) =>
             open[idx] ? (
-              <div className="bg-red-50 text-yellow-200" key={idx}>
-                {flowers[prize as keyof typeof flowers]}
+              <div
+                className="bg-red-50 text-yellow-700 text-sm flex items-center justify-center h-10"
+                key={idx}
+              >
+                <p>{flowers[prize as keyof typeof flowers]}</p>
               </div>
             ) : (
               <div
-                className="bg-red-900 text-yellow-200 text-right px-3 py-1"
+                className="bg-red-900 text-yellow-200 flex items-center justify-center h-10"
                 key={idx}
                 onClick={() => setChosen(idx)}
               >
-                {idx + 1}
+                <p>{idx + 1}</p>
               </div>
             )
           )}
@@ -39,12 +42,12 @@ export const HomePage = () => {
           onClick={() => setChosen(null)}
         >
           {open[chosen] ? (
-            <div className="bg-red-50 text-yellow-200 text-right px-48 py-32 text-4xl z-50">
-              {flowers[prize[chosen] as keyof typeof flowers]}
+            <div className="bg-red-50 text-yellow-700 w-96 h-64 text-4xl z-50 flex items-center justify-center">
+              <p>{flowers[prize[chosen] as keyof typeof flowers]}</p>
             </div>
           ) : (
             <div
-              className="bg-red-900 text-yellow-200 text-right px-48 py-32 text-4xl z-50"
+              className="bg-red-900 text-yellow-200 w-96 h-64 text-4xl z-50 flex items-center justify-center"
               onClick={(e) => {
                 e.stopPropagation();
                 setOpen((open) => {
@@ -54,7 +57,7 @@ export const HomePage = () => {
                 });
               }}
             >
-              {chosen + 1}
+              <p>{chosen + 1}</p>
             </div>
           )}
         </div>
