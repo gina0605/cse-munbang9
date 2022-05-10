@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { openState, prizeState } from '../plugins/ridge';
 import { flowers, reward } from '../types';
 
 export const HomePage = () => {
-  const prize = prizeState.useValue();
+  const [prize, setPrize] = prizeState.use();
   const [open, setOpen] = openState.use();
   const [chosen, setChosen] = useState<number | null>(null);
+  const [cnt, setCnt] = useState(0);
+
+  useEffect(() => {
+    if (cnt >= 20) {
+      setPrize(null);
+      setOpen(null);
+    }
+  }, [cnt, setOpen, setPrize]);
 
   if (!prize || !open) return <></>;
 
   return (
     <div className="flex flex-col bg-blue-900 w-full h-screen items-center relative">
-      <h1 className="text-white text-5xl font-bold text-center w-full py-2">
+      <h1
+        className="text-white text-5xl font-bold text-center w-full py-2"
+        onClick={() => setCnt((cnt) => cnt + 1)}
+      >
         컴공 문방구
       </h1>
-      <div className="w-full">
+      <div className="w-full" onClick={() => setCnt(0)}>
         <div className="grid grid-cols-20 gap-0.5">
           {prize.map((prize, idx) =>
             open[idx] ? (
