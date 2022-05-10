@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { openState, prizeState } from '../plugins/ridge';
-import { flowers } from '../types';
+import { flowers, reward } from '../types';
 
 export const HomePage = () => {
   const prize = prizeState.useValue();
@@ -38,13 +38,18 @@ export const HomePage = () => {
       </div>
       {chosen !== null && (
         <div
-          className="absolute bg-gray-300 inset-0 flex items-center justify-center bg-opacity-50"
+          className="absolute bg-gray-300 inset-0 flex flex-col items-center justify-center bg-opacity-50"
           onClick={() => setChosen(null)}
         >
           {open[chosen] ? (
-            <div className="bg-red-50 text-yellow-700 w-96 h-64 text-4xl z-50 flex items-center justify-center">
-              <p>{flowers[prize[chosen] as keyof typeof flowers]}</p>
-            </div>
+            <>
+              <div className="bg-red-50 text-yellow-700 w-96 h-64 text-4xl z-50 flex items-center justify-center">
+                <p>{flowers[prize[chosen] as keyof typeof flowers]}</p>
+              </div>
+              <p className="text-3xl mt-12 -mb-12 h-0 text-white">
+                {reward[prize[chosen] as keyof typeof reward]}
+              </p>
+            </>
           ) : (
             <div
               className="bg-red-900 text-yellow-200 w-96 h-64 text-4xl z-50 flex items-center justify-center"
