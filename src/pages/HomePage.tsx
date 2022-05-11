@@ -18,7 +18,7 @@ export const HomePage = () => {
   if (!prize || !open) return <></>;
 
   return (
-    <div className="flex flex-col bg-blue-900 w-full h-screen items-center relative">
+    <div className="flex flex-col bg-blue-700 w-full h-screen items-center relative">
       <h1
         className="text-white text-5xl font-bold text-center w-full py-2"
         onClick={() => setCnt((cnt) => cnt + 1)}
@@ -30,14 +30,14 @@ export const HomePage = () => {
           {prize.map((prize, idx) =>
             open[idx] ? (
               <div
-                className="bg-red-50 text-yellow-700 text-sm flex items-center justify-center h-10"
+                className="bg-white text-yellow-700 text-sm flex items-center justify-center h-10"
                 key={idx}
               >
                 <p>{flowers[prize as keyof typeof flowers]}</p>
               </div>
             ) : (
               <div
-                className="bg-red-900 text-yellow-200 flex items-center justify-center h-10"
+                className="bg-red-700 text-yellow-200 flex items-center justify-center h-10"
                 key={idx}
                 onClick={() => setChosen(idx)}
               >
@@ -49,12 +49,12 @@ export const HomePage = () => {
       </div>
       {chosen !== null && (
         <div
-          className="absolute bg-gray-300 inset-0 flex flex-col items-center justify-center bg-opacity-50"
+          className="absolute bg-gray-300 inset-0 flex flex-col items-center justify-center bg-opacity-70"
           onClick={() => setChosen(null)}
         >
           {open[chosen] ? (
             <>
-              <div className="bg-red-50 text-yellow-700 w-96 h-64 text-4xl z-50 flex items-center justify-center">
+              <div className="bg-white text-yellow-800 w-96 h-64 text-4xl z-50 flex items-center justify-center rounded">
                 <p>{flowers[prize[chosen] as keyof typeof flowers]}</p>
               </div>
               <p className="text-3xl mt-12 -mb-12 h-0 text-white">
@@ -63,7 +63,7 @@ export const HomePage = () => {
             </>
           ) : (
             <div
-              className="bg-red-900 text-yellow-200 w-96 h-64 text-4xl z-50 flex items-center justify-center"
+              className="bg-red-700 text-yellow-200 w-96 h-64 text-4xl z-50 flex items-center justify-center rounded"
               onClick={(e) => {
                 e.stopPropagation();
                 setOpen((open) => {
