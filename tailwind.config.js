@@ -29,6 +29,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['"Spoqa Han Sans Neo"', ...defaultTheme.fontFamily.sans],
+        hyeon: ['"Do Hyeon"', 'sans-serif'],
       },
       fontSize: {
         10: ['0.625rem', { lineHeight: '1rem' }],

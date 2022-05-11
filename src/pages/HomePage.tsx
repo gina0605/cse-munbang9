@@ -20,7 +20,7 @@ export const HomePage = () => {
   return (
     <div className="flex flex-col bg-blue-700 w-full h-screen items-center relative">
       <h1
-        className="text-white text-5xl font-bold text-center w-full py-2"
+        className="text-white text-5xl font-bold text-center w-full py-2 font-hyeon"
         onClick={() => setCnt((cnt) => cnt + 1)}
       >
         컴공 문방구
@@ -30,7 +30,7 @@ export const HomePage = () => {
           {prize.map((prize, idx) =>
             open[idx] ? (
               <div
-                className="bg-white text-yellow-700 text-sm flex items-center justify-center h-10"
+                className="bg-white text-yellow-700 flex items-center justify-center h-10 font-hyeon"
                 key={idx}
               >
                 <p>{flowers[prize as keyof typeof flowers]}</p>
@@ -54,8 +54,10 @@ export const HomePage = () => {
         >
           {open[chosen] ? (
             <>
-              <div className="bg-white text-yellow-800 w-96 h-64 text-4xl z-50 flex items-center justify-center rounded">
-                <p>{flowers[prize[chosen] as keyof typeof flowers]}</p>
+              <div className="bg-white text-yellow-800 w-96 h-64 text-5xl z-50 flex items-center justify-center rounded ">
+                <p className="font-hyeon">
+                  {flowers[prize[chosen] as keyof typeof flowers]}
+                </p>
               </div>
               <p className="text-3xl mt-12 -mb-12 h-0 text-white">
                 {reward[prize[chosen] as keyof typeof reward]}
